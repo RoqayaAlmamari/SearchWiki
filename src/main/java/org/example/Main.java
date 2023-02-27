@@ -10,7 +10,7 @@ public class Main {
 
         System.out.print("Enter a search topic: ");
         String searchTopic = scanner.nextLine();
-
+        //create object to call search method
         WikipediaSearch wikipediaSearch = new WikipediaSearch();
         wikipediaSearch.search(searchTopic);
     }
