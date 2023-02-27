@@ -11,15 +11,15 @@ import java.io.IOException;
 public class WikipediaSearch {
 
     private static final String WIKIPEDIA_API_URL =
-            "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=";
+            "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="; //use the search url of wikipedia to get the name of topic and other information
 
     private final OkHttpClient client = new OkHttpClient();
     private final Gson gson = new Gson();
 
 
-
+    //add method for search topic and test it in Main Class
     public void search(String searchTopic) {
-        String apiUrl = WIKIPEDIA_API_URL + searchTopic;
+        String apiUrl = WIKIPEDIA_API_URL + searchTopic; //use the api url to search topic
 
         Request request = new Request.Builder()
                 .url(apiUrl)
@@ -46,10 +46,10 @@ public class WikipediaSearch {
                 System.out.println("Title: " + title);
                 System.out.println("URL: " + url);
 
-
-                System.out.println("Snippet 1: " + snippet.substring(0, Math.min(snippet.length(), 100)) + "...");
-                System.out.println("Snippet 2: " + snippet.substring(101, Math.min(snippet.length(), 200)) + "...");
-                System.out.println("Snippet 3: " + snippet.substring(201, Math.min(snippet.length(), 300)) + "...");
+                //to get the snippets from different line in wikipedia site
+                System.out.println("Snippet 1: " + snippet.substring(0, Math.min(snippet.length(), 30)) + "...");
+                System.out.println("Snippet 2: " + snippet.substring(31, Math.min(snippet.length(), 60)) + "...");
+                System.out.println("Snippet 3: " + snippet.substring(61, Math.min(snippet.length(), 100)) + "...");
                 System.out.println();
             }
         } catch (IOException e) {
