@@ -34,6 +34,7 @@ public class WikipediaSearch {
             JsonArray searchResults = jsonObject.getAsJsonObject("query").getAsJsonArray("search");
 
             for (int i = 0; i < Math.min(1, searchResults.size()); i++) {
+                //to get result
                 JsonObject result = searchResults.get(i).getAsJsonObject();
                 String title = result.get("title").getAsString();
 
