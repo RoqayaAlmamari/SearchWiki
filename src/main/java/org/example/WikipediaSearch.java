@@ -36,20 +36,20 @@ public class WikipediaSearch {
             for (int i = 0; i < Math.min(1, searchResults.size()); i++) {
                 JsonObject result = searchResults.get(i).getAsJsonObject();
                 String title = result.get("title").getAsString();
-                //String snippet = result.get("snippet").getAsString();
+
                 String snippet = result.get("snippet").getAsString().replaceAll("<.*?>", ""); // remove HTML tags
-                //snippet = snippet.substring(0, Math.min(snippet.length(), 500)) + "...";
+
 
                 String url = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_");
 
 
-                System.out.println("Title: " + title);
-                System.out.println("URL: " + url);
+                System.out.println("Title:    " + title);
+                System.out.println("URL:      " + url);
 
                 //to get the snippets from different line in wikipedia site
-                System.out.println("Snippet 1: " + snippet.substring(0, Math.min(snippet.length(), 30)) + "...");
-                System.out.println("Snippet 2: " + snippet.substring(31, Math.min(snippet.length(), 60)) + "...");
-                System.out.println("Snippet 3: " + snippet.substring(61, Math.min(snippet.length(), 100)) + "...");
+                System.out.println("Snippet 1:    " + snippet.substring(0, Math.min(snippet.length(), 30)) + "...");
+                System.out.println("Snippet 2:    " + snippet.substring(31, Math.min(snippet.length(), 60)) + "...");
+                System.out.println("Snippet 3:    " + snippet.substring(61, Math.min(snippet.length(), 100)) + "...");
                 System.out.println();
             }
         } catch (IOException e) {
